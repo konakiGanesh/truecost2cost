@@ -3,6 +3,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, House, Construction } from "lucide-react";
+import aerialView from "@/assets/project-aerial-view.jpg";
+import sampleVilla1 from "@/assets/sample-villa-1.jpg";
+import sampleVilla2 from "@/assets/sample-villa-2.jpg";
+import indoorPool from "@/assets/indoor-pool.jpg";
+import outdoorPool from "@/assets/outdoor-pool.jpg";
+import luxuryVillaNight from "@/assets/luxury-villa-night.jpg";
 
 const ProjectsSection = () => {
   const projects = [
@@ -125,6 +131,47 @@ const ProjectsSection = () => {
           })}
         </div>
 
+        {/* Project Gallery */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-4xl font-bold font-poppins mb-4 text-foreground">
+              Project Gallery
+            </h3>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-poppins">
+              Explore our luxury villa designs, premium amenities, and stunning site views
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+            {[
+              { image: aerialView, title: "Aerial Site View", description: "Bird's eye view of the villa complex layout" },
+              { image: sampleVilla1, title: "Modern Villa Design", description: "Contemporary architecture with premium finishes" },
+              { image: sampleVilla2, title: "Elegant Villa Model", description: "Two-story luxury villa with beautiful landscaping" },
+              { image: indoorPool, title: "Indoor Swimming Pool", description: "Luxurious indoor pool with modern amenities" },
+              { image: outdoorPool, title: "Outdoor Pool Area", description: "Beautiful outdoor swimming pool and lounging area" },
+              { image: luxuryVillaNight, title: "Luxury Villa Evening", description: "Premium villa with elegant night lighting" }
+            ].map((item, index) => (
+              <Card key={index} className="overflow-hidden group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1">
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <CardContent className="p-4">
+                  <h4 className="font-semibold font-poppins text-foreground mb-2">
+                    {item.title}
+                  </h4>
+                  <p className="text-sm text-muted-foreground">
+                    {item.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
         {/* Additional Info */}
         <div className="mt-16 text-center">
           <Card className="max-w-4xl mx-auto bg-muted/30">
@@ -136,7 +183,7 @@ const ProjectsSection = () => {
                 <div className="text-center">
                   <MapPin className="w-8 h-8 text-primary mx-auto mb-2" />
                   <p className="text-sm font-medium text-foreground">Prime Location</p>
-                  <p className="text-xs text-muted-foreground">Kasauli Hills</p>
+                  <p className="text-xs text-muted-foreground">Tirupati Hills</p>
                 </div>
                 <div className="text-center">
                   <House className="w-8 h-8 text-primary mx-auto mb-2" />
