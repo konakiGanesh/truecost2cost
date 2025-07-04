@@ -64,8 +64,8 @@ const ContactSection = () => {
                         <h4 className="font-semibold font-poppins text-foreground mb-2">Office Address</h4>
                         <p className="text-muted-foreground">
                           TrueCost2Cost Villa Projects<br />
-                          Kasauli, Himachal Pradesh<br />
-                          India - 173204
+                          Tirupati, Andhra Pradesh<br />
+                          India - 517501
                         </p>
                       </div>
                     </div>
@@ -81,8 +81,8 @@ const ContactSection = () => {
                       <div>
                         <h4 className="font-semibold font-poppins text-foreground mb-2">Phone Number</h4>
                         <p className="text-muted-foreground">
-                          +91 98765 43210<br />
-                          +91 87654 32109
+                          +91 99632 96324<br />
+                          +91 99632 96324
                         </p>
                         <p className="text-sm text-muted-foreground mt-1">
                           Available: 9 AM - 7 PM (Mon-Sat)
@@ -111,19 +111,20 @@ const ContactSection = () => {
               </div>
             </div>
 
-            {/* Map Placeholder */}
+            {/* Google Map */}
             <Card className="overflow-hidden">
               <CardContent className="p-0">
-                <div className="w-full h-64 bg-muted flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="w-12 h-12 text-muted-foreground mx-auto mb-2" />
-                    <p className="text-muted-foreground">
-                      Interactive Map Coming Soon
-                    </p>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      Kasauli, Himachal Pradesh
-                    </p>
-                  </div>
+                <div className="w-full h-64">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.90089894896!2d79.24906284374999!3d13.6288312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d4b0f88a1c7d%3A0x7a3b2c8a8b1c6d5e!2sTirupati%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1734589200000!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="TrueCost2Cost Office Location - Tirupati, Andhra Pradesh"
+                  />
                 </div>
               </CardContent>
             </Card>

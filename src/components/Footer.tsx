@@ -18,13 +18,13 @@ const Footer = () => {
           {/* Brand */}
           <div className="col-span-1 lg:col-span-2">
             <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <House className="h-6 w-6 text-primary-foreground" />
+              <div className="w-10 h-10 flex items-center justify-center">
+                <img src="/lovable-uploads/85922bb1-2a36-4789-ba14-6e2e51b3515c.png" alt="TrueCost2Cost Logo" className="h-8 w-auto" />
               </div>
               <span className="text-2xl font-bold font-poppins">TrueCost2Cost</span>
             </div>
             <p className="text-secondary-foreground/80 mb-6 max-w-md leading-relaxed">
-              Building transparent, customer-controlled villa projects in the beautiful hills of Kasauli. 
+              Building transparent, customer-controlled villa projects in the beautiful hills of Tirupati. 
               Your dream home with complete ownership and no hidden costs.
             </p>
             <div className="space-y-2">
@@ -87,14 +87,14 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                 <div className="text-sm text-secondary-foreground/80">
-                  <p>Kasauli, Himachal Pradesh</p>
-                  <p>India - 173204</p>
+                  <p>Tirupati, Andhra Pradesh</p>
+                  <p>India - 517501</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-primary flex-shrink-0" />
                 <div className="text-sm text-secondary-foreground/80">
-                  <p>+91 98765 43210</p>
+                  <p>+91 99632 96324</p>
                   <p className="text-xs opacity-70">9 AM - 7 PM (Mon-Sat)</p>
                 </div>
               </div>

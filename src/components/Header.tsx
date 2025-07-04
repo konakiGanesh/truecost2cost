@@ -19,8 +19,8 @@ const Header = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <House className="h-6 w-6 text-primary-foreground" />
+            <div className="w-10 h-10 flex items-center justify-center">
+              <img src="/lovable-uploads/85922bb1-2a36-4789-ba14-6e2e51b3515c.png" alt="TrueCost2Cost Logo" className="h-8 w-auto" />
             </div>
             <span className="text-xl font-bold font-poppins text-foreground">TrueCost2Cost</span>
           </div>
