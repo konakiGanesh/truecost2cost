@@ -1,16 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, House, Construction } from "lucide-react";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { MapPin, House, Construction, ChevronLeft, ChevronRight } from "lucide-react";
 import aerialView from "@/assets/project-aerial-view.jpg";
 import sampleVilla1 from "@/assets/sample-villa-1.jpg";
 import sampleVilla2 from "@/assets/sample-villa-2.jpg";
 import indoorPool from "@/assets/indoor-pool.jpg";
 import outdoorPool from "@/assets/outdoor-pool.jpg";
 import luxuryVillaNight from "@/assets/luxury-villa-night.jpg";
+// Gallery slide images
+import galleryAerial1 from "@/assets/gallery-aerial-1.jpg";
+import galleryAerial2 from "@/assets/gallery-aerial-2.jpg";
+import galleryAerial3 from "@/assets/gallery-aerial-3.jpg";
+import galleryVilla11 from "@/assets/gallery-villa-1-1.jpg";
+import galleryVilla12 from "@/assets/gallery-villa-1-2.jpg";
+import galleryVilla13 from "@/assets/gallery-villa-1-3.jpg";
+import galleryVilla21 from "@/assets/gallery-villa-2-1.jpg";
+import galleryVilla22 from "@/assets/gallery-villa-2-2.jpg";
+import galleryVilla23 from "@/assets/gallery-villa-2-3.jpg";
+import galleryPool11 from "@/assets/gallery-pool-1-1.jpg";
+import galleryPool12 from "@/assets/gallery-pool-1-2.jpg";
+import galleryPool13 from "@/assets/gallery-pool-1-3.jpg";
+import galleryPool21 from "@/assets/gallery-pool-2-1.jpg";
+import galleryPool22 from "@/assets/gallery-pool-2-2.jpg";
+import galleryPool23 from "@/assets/gallery-pool-2-3.jpg";
+import galleryNight1 from "@/assets/gallery-night-1.jpg";
+import galleryNight2 from "@/assets/gallery-night-2.jpg";
+import galleryNight3 from "@/assets/gallery-night-3.jpg";
 
 const ProjectsSection = () => {
+  const [currentSlide, setCurrentSlide] = useState<{[key: number]: number}>({});
+
+  const nextSlide = (galleryIndex: number, totalSlides: number) => {
+    setCurrentSlide(prev => ({
+      ...prev,
+      [galleryIndex]: ((prev[galleryIndex] || 0) + 1) % totalSlides
+    }));
+  };
+
+  const prevSlide = (galleryIndex: number, totalSlides: number) => {
+    setCurrentSlide(prev => ({
+      ...prev,
+      [galleryIndex]: ((prev[galleryIndex] || 0) - 1 + totalSlides) % totalSlides
+    }));
+  };
   const projects = [
     {
       id: "4-villas",
@@ -144,30 +179,150 @@ const ProjectsSection = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {[
-              { image: aerialView, title: "Aerial Site View", description: "Bird's eye view of the villa complex layout" },
-              { image: sampleVilla1, title: "Modern Villa Design", description: "Contemporary architecture with premium finishes" },
-              { image: sampleVilla2, title: "Elegant Villa Model", description: "Two-story luxury villa with beautiful landscaping" },
-              { image: indoorPool, title: "Indoor Swimming Pool", description: "Luxurious indoor pool with modern amenities" },
-              { image: outdoorPool, title: "Outdoor Pool Area", description: "Beautiful outdoor swimming pool and lounging area" },
-              { image: luxuryVillaNight, title: "Luxury Villa Evening", description: "Premium villa with elegant night lighting" }
+              { 
+                image: aerialView, 
+                title: "Aerial Site View", 
+                description: "Bird's eye view of the villa complex layout",
+                slides: [galleryAerial1, galleryAerial2, galleryAerial3],
+                slideDescriptions: [
+                  "Master plan overview showing complete villa layout",
+                  "Construction progress from aerial perspective", 
+                  "Completed villa complex with all amenities"
+                ]
+              },
+              { 
+                image: sampleVilla1, 
+                title: "Modern Villa Design", 
+                description: "Contemporary architecture with premium finishes",
+                slides: [galleryVilla11, galleryVilla12, galleryVilla13],
+                slideDescriptions: [
+                  "Premium exterior with modern architectural design",
+                  "Spacious living areas with high-end interiors",
+                  "Modern kitchen with premium appliances and finishes"
+                ]
+              },
+              { 
+                image: sampleVilla2, 
+                title: "Elegant Villa Model", 
+                description: "Two-story luxury villa with beautiful landscaping",
+                slides: [galleryVilla21, galleryVilla22, galleryVilla23],
+                slideDescriptions: [
+                  "Two-story villa with elegant exterior design",
+                  "Master bedroom with luxury finishes",
+                  "Outdoor terrace with garden views"
+                ]
+              },
+              { 
+                image: indoorPool, 
+                title: "Indoor Swimming Pool", 
+                description: "Luxurious indoor pool with modern amenities",
+                slides: [galleryPool11, galleryPool12, galleryPool13],
+                slideDescriptions: [
+                  "Premium indoor pool with mood lighting",
+                  "Changing rooms and spa facilities",
+                  "Recreation area with entertainment zone"
+                ]
+              },
+              { 
+                image: outdoorPool, 
+                title: "Outdoor Pool Area", 
+                description: "Beautiful outdoor swimming pool and lounging area",
+                slides: [galleryPool21, galleryPool22, galleryPool23],
+                slideDescriptions: [
+                  "Infinity edge pool with villa complex view",
+                  "Poolside deck with cabanas and bar area",
+                  "Evening ambiance with underwater lighting"
+                ]
+              },
+              { 
+                image: luxuryVillaNight, 
+                title: "Luxury Villa Evening", 
+                description: "Premium villa with elegant night lighting",
+                slides: [galleryNight1, galleryNight2, galleryNight3],
+                slideDescriptions: [
+                  "Exterior architectural lighting and landscaping",
+                  "Warm interior lighting and cozy ambiance",
+                  "Complete villa complex night illumination"
+                ]
+              }
             ].map((item, index) => (
-              <Card key={index} className="overflow-hidden group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1">
-                <div className="aspect-video overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <CardContent className="p-4">
-                  <h4 className="font-semibold font-poppins text-foreground mb-2">
-                    {item.title}
-                  </h4>
-                  <p className="text-sm text-muted-foreground">
-                    {item.description}
-                  </p>
-                </CardContent>
-              </Card>
+              <Dialog key={index}>
+                <DialogTrigger asChild>
+                  <Card className="overflow-hidden group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 cursor-pointer">
+                    <div className="aspect-video overflow-hidden">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <CardContent className="p-4">
+                      <h4 className="font-semibold font-poppins text-foreground mb-2">
+                        {item.title}
+                      </h4>
+                      <p className="text-sm text-muted-foreground">
+                        {item.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </DialogTrigger>
+                <DialogContent className="max-w-4xl">
+                  <DialogHeader>
+                    <DialogTitle className="text-2xl font-bold font-poppins">
+                      {item.title}
+                    </DialogTitle>
+                    <DialogDescription asChild>
+                      <div className="space-y-4">
+                        <div className="relative aspect-video overflow-hidden rounded-lg bg-muted">
+                          <img
+                            src={item.slides[currentSlide[index] || 0]}
+                            alt={`${item.title} - Slide ${(currentSlide[index] || 0) + 1}`}
+                            className="w-full h-full object-cover"
+                          />
+                          
+                          {/* Navigation buttons */}
+                          <button
+                            onClick={() => prevSlide(index, item.slides.length)}
+                            className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200"
+                          >
+                            <ChevronLeft className="w-5 h-5" />
+                          </button>
+                          <button
+                            onClick={() => nextSlide(index, item.slides.length)}
+                            className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-200"
+                          >
+                            <ChevronRight className="w-5 h-5" />
+                          </button>
+                          
+                          {/* Slide indicators */}
+                          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                            {item.slides.map((_, slideIndex) => (
+                              <button
+                                key={slideIndex}
+                                onClick={() => setCurrentSlide(prev => ({ ...prev, [index]: slideIndex }))}
+                                className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                                  (currentSlide[index] || 0) === slideIndex 
+                                    ? 'bg-white' 
+                                    : 'bg-white/50 hover:bg-white/75'
+                                }`}
+                              />
+                            ))}
+                          </div>
+                        </div>
+                        
+                        <div className="text-center">
+                          <p className="text-base text-muted-foreground leading-relaxed">
+                            {item.slideDescriptions[currentSlide[index] || 0]}
+                          </p>
+                          <p className="text-sm text-muted-foreground/75 mt-2">
+                            Image {(currentSlide[index] || 0) + 1} of {item.slides.length}
+                          </p>
+                        </div>
+                      </div>
+                    </DialogDescription>
+                  </DialogHeader>
+                </DialogContent>
+              </Dialog>
             ))}
           </div>
         </div>
