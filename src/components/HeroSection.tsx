@@ -16,7 +16,7 @@ const HeroSection = () => {
     {
       image: heroFamily,
       title: "Your Dream Home Awaits",
-      subtitle: "Join hundreds of satisfied families in Kasauli"
+      subtitle: "Join hundreds of satisfied families"
     },
     {
       image: heroProject,

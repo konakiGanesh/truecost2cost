@@ -23,7 +23,7 @@ const CTASection = () => {
             Ready to Build Your Dream Villa?
           </h2>
           <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto font-poppins font-light">
-            Take the first step towards owning your perfect villa in the beautiful hills of Kasauli. 
+            Take the first step towards owning your perfect villa in the beautiful hills. 
             Our experts are ready to guide you through the entire process.
           </p>
 
