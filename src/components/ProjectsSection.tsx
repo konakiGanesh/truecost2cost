@@ -48,6 +48,21 @@ const ProjectsSection = () => {
   };
   const projects = [
     {
+      id: "2-villas",
+      title: "2 Villas in 1 Acre",
+      description: "Ultra-luxury villas with premium amenities and expansive individual spaces",
+      features: [
+        "3500-4000 sq.ft villas",
+        "12000 sq.ft individual plots", 
+        "Private pools & gardens",
+        "Maximum luxury & privacy",
+        "Premium finishes"
+      ],
+      highlight: "Ultra Luxury Option",
+      price: "₹1.2-1.5 Crores*",
+      icon: House
+    },
+    {
       id: "4-villas",
       title: "4 Villas in 1 Acre",
       description: "Spacious luxury villas with maximum privacy and large individual plots",
@@ -61,6 +76,21 @@ const ProjectsSection = () => {
       highlight: "Best for Large Families",
       price: "₹85-95 Lakhs*",
       icon: House
+    },
+    {
+      id: "6-villas",
+      title: "6 Villas in 1 Acre",
+      description: "Premium villas with balanced space and privacy for modern families",
+      features: [
+        "2000-2500 sq.ft villas",
+        "4000 sq.ft individual plots",
+        "Private gardens & parking", 
+        "Modern amenities",
+        "Balanced privacy"
+      ],
+      highlight: "Premium Choice",
+      price: "₹70-80 Lakhs*",
+      icon: Construction
     },
     {
       id: "8-villas", 
@@ -96,7 +126,7 @@ const ProjectsSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
           {projects.map((project, index) => {
             const Icon = project.icon;
             return (

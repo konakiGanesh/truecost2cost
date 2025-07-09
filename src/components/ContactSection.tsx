@@ -81,8 +81,8 @@ const ContactSection = () => {
                       <div>
                         <h4 className="font-semibold font-poppins text-foreground mb-2">Phone Number</h4>
                         <p className="text-muted-foreground">
-                          +91 99632 96324<br />
-                          +91 99632 96324
+                          +91 63050 50110<br />
+                          +91 63050 50110
                         </p>
                         <p className="text-sm text-muted-foreground mt-1">
                           Available: 9 AM - 7 PM (Mon-Sat)
